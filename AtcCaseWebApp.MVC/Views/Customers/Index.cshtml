@@ -1,0 +1,32 @@
+﻿@model IEnumerable<AtcCaseWebApp.MVC.Models.ViewModels.CustomerVM>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<table class="table table-bordered">
+    <tr>
+        <td>CompanyName </td>
+        <td>OrderDate </td>
+
+        <td>UnitPrice </td>
+
+        <td>Quantity </td>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Customer.CompanyName </td>
+            <td>@item.Order.OrderDate </td>
+
+            <td>@item.OrderDetail.UnitPrice </td>
+
+            <td>@item.OrderDetail.Quantity </td>
+
+
+        </tr>
+    }
+</table>

@@ -1,0 +1,28 @@
+﻿@model IEnumerable<AtcCaseWebApp.MVC.Models.Product>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<table class="table table-bordered">
+    <tr>
+        <td>ProductName </td>
+        <td>UnitPrice </td>
+
+        <td>QuantityPerUnit </td>
+
+
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>@item.ProductName </td>
+    <td>@item.UnitPrice </td>
+    <td>@item.QuantityPerUnit </td>
+
+</tr>
+    }
+</table>

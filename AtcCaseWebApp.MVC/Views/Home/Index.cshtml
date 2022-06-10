@@ -1,0 +1,63 @@
+﻿@model IEnumerable<AtcCaseWebApp.MVC.Models.Supplier>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<form asp-controller="Companies" asp-action="Index" method="get">
+    <p>
+        Girilen ülkeye göre ülkede çalışan firmaların adını, adresini ve telefon
+        numarasını listeleyin.
+    </p>
+    <label>Ülke Adı Girin</label>
+    <input type="text" name="p" />
+    <button class="btn btn-info">Getir</button> (UK,USA vs)
+</form>
+<br />
+<form asp-controller="Products" asp-action="Index" method="post">
+    <p>Girilen min ve max fiyatları arasında birim fiyatına sahip olan
+        bütün ürünleri listeleyin.
+    </p>
+    <label>Max Değer</label>
+    <input type="text" name="max" />
+    <label>Min Değer</label>
+    <input type="text" name="min" />
+
+    <button class="btn btn-info">Getir</button>
+</form>
+<br />
+<form asp-controller="Customers" asp-action="Index" method="get">
+    <p>
+        Seçili müşteri id’sine (parametre olarak) bağlı kişilerin yaptığı bütün alışverişlerin fiyat-ürün
+        adı-adeti şekliyle listeleyiniz
+    </p>
+    <label>Müşteri Id'si girin'</label>
+    <input type="text" name="id" />
+    <button class="btn btn-info">Getir</button>
+</form>
+<br />
+<table class="table table-bordered">
+    <tr>
+        <td>CompanyName </td>
+        <td>Address </td>
+
+        <td>Country </td>
+  
+        <td>Phone </td>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>@item.CompanyName </td>
+    <td>@item.Address </td>
+ 
+    <td>@item.Country </td>
+
+    <td>@item.Phone </td>
+
+   
+</tr>
+    }
+</table>
